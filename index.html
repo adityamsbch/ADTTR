@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* ================= RESET & VARIABLES ================= */
         :root {
             --bg-dark: #0a0c10;
             --bg-card: #12161c;
@@ -32,13 +31,11 @@
             overflow-x: hidden;
         }
 
-        /* ================= SCROLLBAR ================= */
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: var(--bg-dark); }
         ::-webkit-scrollbar-thumb { background: #30363d; border-radius: 10px; }
         ::-webkit-scrollbar-thumb:hover { background: var(--accent-blue); }
 
-        /* ================= UTILITIES ================= */
         .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
 
         .section {
@@ -63,7 +60,7 @@
         }
         .section-header .line { flex: 1; height: 1px; background-color: var(--border-color); }
 
-        /* ================= NAVBAR ================= */
+        /* NAVBAR */
         nav {
             position: fixed;
             top: 0;
@@ -97,7 +94,7 @@
             border-color: rgba(47, 129, 247, 0.3);
         }
 
-        /* ================= HERO SECTION ================= */
+        /* HERO */
         #hero {
             height: 100vh;
             display: flex;
@@ -178,7 +175,7 @@
         .hero-menu a:hover { color: var(--accent-blue); }
         .hero-menu a i { font-size: 0.7rem; }
 
-        /* ================= ABOUT SECTION ================= */
+        /* ABOUT */
         .about-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; }
         .about-image {
             width: 100%;
@@ -249,7 +246,7 @@
         }
         .lang-bar-fill { height: 100%; background: var(--accent-blue); border-radius: 2px; }
 
-        /* ================= PROJECTS SECTION ================= */
+        /* PROJECTS */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -281,7 +278,7 @@
         .project-info h3 { font-size: 1rem; margin-bottom: 4px; font-weight: 600; }
         .project-info p { font-size: 0.8rem; color: var(--text-secondary); }
 
-        /* ================= KATALOG PRESTASI (SLIDER) ================= */
+        /* SLIDER PRESTASI */
         .slider-wrapper {
             position: relative;
             overflow: hidden;
@@ -294,7 +291,7 @@
             will-change: transform;
         }
         .achievement-card {
-            flex: 0 0 calc(33.333% - 14px); /* 3 kartu per slide di desktop */
+            flex: 0 0 calc(33.333% - 14px);
             background: var(--bg-card);
             border: 1px solid var(--border-color);
             border-radius: 12px;
@@ -337,7 +334,6 @@
             letter-spacing: 1px;
         }
 
-        /* Slider Controls */
         .slider-controls {
             display: flex;
             justify-content: space-between;
@@ -383,7 +379,7 @@
             border-radius: 10px;
         }
 
-        /* ================= TRACK RECORD PENDIDIKAN ================= */
+        /* TIMELINE PENDIDIKAN */
         .timeline {
             position: relative;
             max-width: 800px;
@@ -439,7 +435,7 @@
         .timeline-content h4 { font-size: 0.9rem; color: var(--text-secondary); font-weight: 400; margin-bottom: 10px; }
         .timeline-content p { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; }
 
-        /* ================= CONTACT SECTION ================= */
+        /* CONTACT */
         #contact { padding-bottom: 100px; }
         .contact-wrapper {
             display: grid;
@@ -507,7 +503,7 @@
         }
         .contact-image img { width: 100%; height: 100%; object-fit: cover; opacity: 0.6; }
 
-        /* ================= MODAL (POP-UP) STYLES ================= */
+        /* MODAL */
         .modal {
             display: none;
             position: fixed;
@@ -580,14 +576,27 @@
             background: #0a0c10;
         }
 
-        /* PDF Iframe */
         .modal-body iframe {
             width: 100%;
             height: 70vh;
             border: none;
         }
 
-        /* Social Modal Specific */
+        /* Fallback jika PDF tidak bisa di-embed */
+        .pdf-fallback {
+            padding: 40px;
+            text-align: center;
+            color: var(--text-secondary);
+        }
+        .pdf-fallback i {
+            font-size: 3rem;
+            color: var(--accent-blue);
+            margin-bottom: 20px;
+        }
+        .pdf-fallback h4 { color: var(--text-primary); margin-bottom: 10px; }
+        .pdf-fallback p { margin-bottom: 20px; font-size: 0.9rem; }
+
+        /* Social Modal */
         .social-modal-body {
             padding: 40px;
             text-align: center;
@@ -641,7 +650,7 @@
             transform: translateY(-2px);
         }
 
-        /* ================= ANIMATIONS ================= */
+        /* ANIMATIONS */
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
@@ -654,7 +663,7 @@
         }
         .stagger-item.visible { opacity: 1; transform: translateY(0); }
 
-        /* Responsive */
+        /* RESPONSIVE */
         @media (max-width: 900px) {
             .hero-grid { grid-template-columns: 1fr; text-align: center; }
             .hero-image-wrapper { margin: 0 auto; max-width: 250px; }
@@ -671,17 +680,11 @@
             .timeline-item::before { left: -26px; }
             .modal-content { width: 95%; max-height: 95vh; }
             .modal-body iframe { height: 60vh; }
-
-            /* Slider Responsive */
-            .achievement-card {
-                flex: 0 0 calc(50% - 10px); /* 2 kartu di tablet */
-            }
+            .achievement-card { flex: 0 0 calc(50% - 10px); }
         }
 
         @media (max-width: 600px) {
-            .achievement-card {
-                flex: 0 0 100%; /* 1 kartu di HP */
-            }
+            .achievement-card { flex: 0 0 100%; }
         }
     </style>
 </head>
@@ -704,7 +707,7 @@
         </div>
     </nav>
 
-    <!-- HERO SECTION -->
+    <!-- HERO -->
     <section id="hero" class="container section">
         <div class="hero-grid">
             <div class="hero-image-wrapper">
@@ -723,7 +726,7 @@
         <div class="hero-year">ADITYA MISBACH BARITA HANAFI</div>
     </section>
 
-    <!-- ABOUT SECTION -->
+    <!-- ABOUT -->
     <section id="about" class="container section">
         <div class="section-header">
             <h2>About Me</h2>
@@ -785,7 +788,7 @@
         </div>
     </section>
 
-    <!-- PROJECTS SECTION -->
+    <!-- PROJECTS -->
     <section id="projects" class="container section">
         <div class="section-header">
             <h2>Recap Project</h2>
@@ -832,16 +835,21 @@
         </div>
     </section>
 
-    <!-- KATALOG PRESTASI (SLIDER PDF) SECTION -->
+    <!-- KATALOG PRESTASI (SLIDER PDF) -->
     <section id="achievements" class="container section">
         <div class="section-header">
-            <h2>ACHIEVEMENT OF JOURNEY </h2>
+            <h2>ACHIEVEMENT OF JOURNEY</h2>
             <div class="line"></div>
             <span style="font-size: 0.8rem; color: var(--text-secondary);">SLIDE PDF</span>
         </div>
 
         <div class="slider-wrapper">
             <div class="slider-track" id="sliderTrack">
+
+                <!-- ============================================ -->
+                <!-- GANTI NAMA FILE PDF DI SINI (baris onclick) -->
+                <!-- ============================================ -->
+
                 <!-- Prestasi 1 -->
                 <div class="achievement-card" onclick="openPdfModal('Peringkat 6 OSN Astronomi', 'Adit%20Astronomi.pdf')">
                     <div class="achievement-icon">
@@ -854,30 +862,32 @@
                     </div>
                 </div>
 
-                <!-- Prestasi 2 -->
-               <div class="achievement-card" onclick="openPdfModal('Aditya Sirkuit Inkado 2 Kejurprov Jambi', 'sertifikat-karate.pdf')">
-        <div class="achievement-icon"><i class="fa-solid fa-file-pdf"></i></div>
-        <div class="achievement-info">
-            <h3>Bronze Medal of Jambi Province Karate Sirkuit 2</h3>
-            <p>Inkado Province - 2025</p>
-            <span class="pdf-badge"><i class="fa-solid fa-eye"></i> Lihat PDF</span>
-        </div>
-    </div>
-
-                <!-- Prestasi 3 -->
-                <div class="achievement-card" onclick="openPdfModal('Content Creator Terbaik', 'LINK_PDF_ANDA_DISINI.pdf')">
+                <!-- Prestasi 2 (SUDAH DIPERBAIKI) -->
+                <div class="achievement-card" onclick="openPdfModal('Aditya Sirkuit Inkado 2 Kejurprov Jambi', 'sertifikat-karate.pdf')">
                     <div class="achievement-icon">
                         <i class="fa-solid fa-file-pdf"></i>
                     </div>
                     <div class="achievement-info">
-                        <h3>Olympiade of Sport Senior High School (Karate) </h3>
-                        <p>West Organization Jambi of Karate  - 2024</p>
+                        <h3>Bronze Medal of Jambi Province Karate Sirkuit 2</h3>
+                        <p>Inkado Province - 2025</p>
+                        <span class="pdf-badge"><i class="fa-solid fa-eye"></i> Lihat PDF</span>
+                    </div>
+                </div>
+
+                <!-- Prestasi 3 -->
+                <div class="achievement-card" onclick="openPdfModal('Olympiade of Sport Senior High School (Karate)', 'sertifikat-o2sn.pdf')">
+                    <div class="achievement-icon">
+                        <i class="fa-solid fa-file-pdf"></i>
+                    </div>
+                    <div class="achievement-info">
+                        <h3>Olympiade of Sport Senior High School (Karate)</h3>
+                        <p>West Organization Jambi of Karate - 2024</p>
                         <span class="pdf-badge"><i class="fa-solid fa-eye"></i> Lihat PDF</span>
                     </div>
                 </div>
 
                 <!-- Prestasi 4 -->
-                <div class="achievement-card" onclick="openPdfModal('Sertifikat Adobe Certified', 'LINK_PDF_ANDA_DISINI.pdf')">
+                <div class="achievement-card" onclick="openPdfModal('Sertifikat Adobe Certified', 'sertifikat-adobe.pdf')">
                     <div class="achievement-icon">
                         <i class="fa-solid fa-file-pdf"></i>
                     </div>
@@ -889,7 +899,7 @@
                 </div>
 
                 <!-- Prestasi 5 -->
-                <div class="achievement-card" onclick="openPdfModal('Juara 2 Film Pendek', 'LINK_PDF_ANDA_DISINI.pdf')">
+                <div class="achievement-card" onclick="openPdfModal('Juara 2 Film Pendek', 'sertifikat-film.pdf')">
                     <div class="achievement-icon">
                         <i class="fa-solid fa-file-pdf"></i>
                     </div>
@@ -901,7 +911,7 @@
                 </div>
 
                 <!-- Prestasi 6 -->
-                <div class="achievement-card" onclick="openPdfModal('Best Motion Graphic', 'LINK_PDF_ANDA_DISINI.pdf')">
+                <div class="achievement-card" onclick="openPdfModal('Best Motion Graphic', 'sertifikat-motion.pdf')">
                     <div class="achievement-icon">
                         <i class="fa-solid fa-file-pdf"></i>
                     </div>
@@ -911,6 +921,7 @@
                         <span class="pdf-badge"><i class="fa-solid fa-eye"></i> Lihat PDF</span>
                     </div>
                 </div>
+
             </div>
         </div>
 
@@ -922,7 +933,7 @@
         </div>
     </section>
 
-    <!-- TRACK RECORD PENDIDIKAN SECTION -->
+    <!-- TRACK RECORD PENDIDIKAN -->
     <section id="education" class="container section">
         <div class="section-header">
             <h2>Track Record Pendidikan</h2>
@@ -933,7 +944,7 @@
                 <div class="timeline-date">2026-NOW</div>
                 <div class="timeline-content">
                     <h3>UNIVERSITAS JAMBI</h3>
-                    <h4>Jurusan Teknik ELektro & Informatika</h4>
+                    <h4>Jurusan Teknik Elektro & Informatika</h4>
                     <p>Aktif dalam kegiatan ekstrakurikuler multimedia dan mulai mendalami dunia editing serta desain grafis secara otodidak.</p>
                 </div>
             </div>
@@ -942,7 +953,7 @@
                 <div class="timeline-content">
                     <h3>SMAN 07 SAROLANGUN</h3>
                     <h4>Jurusan Sains (MIPA)</h4>
-                    <p>Mengembangkan & berbagai hal dalam dunia akademik & non-akademik seperti OSN (Olimpiade Sains Nasional), O2SN dan lain hal dalam pengembangan softskil.</p>
+                    <p>Mengembangkan berbagai hal dalam dunia akademik & non-akademik seperti OSN (Olimpiade Sains Nasional), O2SN dan lain hal dalam pengembangan softskill.</p>
                 </div>
             </div>
             <div class="timeline-item stagger-item">
@@ -956,7 +967,7 @@
         </div>
     </section>
 
-    <!-- CONTACT SECTION -->
+    <!-- CONTACT -->
     <section id="contact" class="container section">
         <div class="contact-wrapper">
             <div class="contact-info">
@@ -964,14 +975,14 @@
                 <p>Let's collaborate and create something amazing together.</p>
                 
                 <div class="social-links">
-                    <button class="social-link" onclick="openSocialModal('instagram', 'YP2528', 'https://instagram.com/yp2528')">
+                    <button class="social-link" onclick="openSocialModal('instagram', 'msbch._', 'https://instagram.com/msbch._')">
                         <i class="fa-brands fa-instagram"></i>
                         <div>
                             <strong style="display: block; font-size: 0.9rem;">msbch._</strong>
                             <span style="font-size: 0.75rem; color: var(--text-secondary);">Instagram</span>
                         </div>
                     </button>
-                    <button class="social-link" onclick="openSocialModal('tiktok', 'YP2528', 'https://tiktok.com/@yp2528')">
+                    <button class="social-link" onclick="openSocialModal('tiktok', 'Tira', 'https://tiktok.com/@tira')">
                         <i class="fa-brands fa-tiktok"></i>
                         <div>
                             <strong style="display: block; font-size: 0.9rem;">Tira</strong>
@@ -1000,20 +1011,20 @@
         </div>
     </section>
 
-    <!-- ================= MODAL PDF ================= -->
+    <!-- MODAL PDF -->
     <div id="pdfModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
                 <h3 id="pdfModalTitle">Judul Prestasi</h3>
                 <button class="modal-close" onclick="closePdfModal()"><i class="fa-solid fa-xmark"></i></button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body" id="pdfModalBody">
                 <iframe id="pdfIframe" src="" title="PDF Preview"></iframe>
             </div>
         </div>
     </div>
 
-    <!-- ================= MODAL SOCIAL ================= -->
+    <!-- MODAL SOCIAL -->
     <div id="socialModal" class="modal">
         <div class="modal-content" style="max-width: 450px;">
             <div class="modal-header">
@@ -1029,7 +1040,7 @@
                     <p id="socialModalPlatform">Instagram</p>
                     
                     <div class="qr-placeholder" id="socialModalQr">
-                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://instagram.com/yp2528" alt="QR Code">
+                        <img src="" alt="QR Code">
                     </div>
 
                     <a href="#" id="socialModalLink" target="_blank" class="modal-btn">
@@ -1042,7 +1053,7 @@
 
     <!-- JAVASCRIPT -->
     <script>
-        // ================= 1. ANIMASI SCROLL SECTION =================
+        // ================= 1. ANIMASI SCROLL =================
         const sections = document.querySelectorAll('.section');
         const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
 
@@ -1061,7 +1072,7 @@
 
         sections.forEach(section => { observer.observe(section); });
 
-        // ================= 2. UPDATE NAVBAR ACTIVE =================
+        // ================= 2. NAVBAR ACTIVE =================
         const navLinks = document.querySelectorAll('.nav-links a');
         const sectionsList = document.querySelectorAll('section');
         window.addEventListener('scroll', () => {
@@ -1085,14 +1096,52 @@
             }
         });
 
-        // ================= 4. MODAL PDF FUNCTIONS =================
+        // ================= 4. MODAL PDF =================
         function openPdfModal(title, pdfUrl) {
             const modal = document.getElementById('pdfModal');
             const modalTitle = document.getElementById('pdfModalTitle');
             const iframe = document.getElementById('pdfIframe');
+            const modalBody = document.getElementById('pdfModalBody');
 
             modalTitle.textContent = title;
-            iframe.src = pdfUrl + "#toolbar=1&navpanes=0&scrollbar=1";
+            
+            // Reset body ke iframe (jika sebelumnya fallback)
+            modalBody.innerHTML = '<iframe id="pdfIframe" src="" title="PDF Preview"></iframe>';
+            const newIframe = document.getElementById('pdfIframe');
+            
+            // Encode URL untuk handle spasi dan karakter khusus
+            const encodedUrl = encodeURI(pdfUrl);
+            
+            // Set source iframe dengan parameter PDF viewer
+            newIframe.src = encodedUrl + "#toolbar=1&navpanes=0&scrollbar=1&view=FitH";
+            
+            // Fallback: jika iframe gagal load setelah 3 detik, tampilkan pesan download
+            const fallbackTimer = setTimeout(() => {
+                try {
+                    // Cek apakah iframe benar-benar load (cross-origin akan error, kita skip)
+                    // Kita cuma tampilkan fallback jika PDF tidak ada
+                    fetch(encodedUrl, { method: 'HEAD' })
+                        .then(res => {
+                            if (!res.ok) throw new Error('PDF not found');
+                        })
+                        .catch(() => {
+                            modalBody.innerHTML = `
+                                <div class="pdf-fallback">
+                                    <i class="fa-solid fa-file-circle-exclamation"></i>
+                                    <h4>PDF Tidak Dapat Ditampilkan</h4>
+                                    <p>File PDF mungkin tidak ditemukan atau browser tidak mendukung preview.<br>Silakan download file langsung.</p>
+                                    <a href="${encodedUrl}" target="_blank" class="modal-btn">
+                                        <i class="fa-solid fa-download"></i> Buka / Download PDF
+                                    </a>
+                                </div>
+                            `;
+                        });
+                } catch(e) { /* skip */ }
+            }, 3000);
+
+            // Clear timer jika iframe berhasil load
+            newIframe.onload = () => clearTimeout(fallbackTimer);
+
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
         }
@@ -1101,11 +1150,11 @@
             const modal = document.getElementById('pdfModal');
             const iframe = document.getElementById('pdfIframe');
             modal.classList.remove('active');
-            iframe.src = '';
+            if (iframe) iframe.src = '';
             document.body.style.overflow = '';
         }
 
-        // ================= 5. MODAL SOCIAL FUNCTIONS =================
+        // ================= 5. MODAL SOCIAL =================
         function openSocialModal(platform, name, link) {
             const modal = document.getElementById('socialModal');
             const iconEl = document.getElementById('socialModalIcon');
@@ -1146,7 +1195,7 @@
             document.body.style.overflow = '';
         }
 
-        // ================= 6. CLOSE MODAL SAAT KLIK LUAR & ESC =================
+        // ================= 6. CLOSE MODAL =================
         window.addEventListener('click', (event) => {
             const pdfModal = document.getElementById('pdfModal');
             const socialModal = document.getElementById('socialModal');
@@ -1161,20 +1210,18 @@
             }
         });
 
-        // ================= 7. SLIDER KATALOG PRESTASI =================
+        // ================= 7. SLIDER PRESTASI =================
         let currentSlide = 0;
         const sliderTrack = document.getElementById('sliderTrack');
         const dotsContainer = document.getElementById('sliderDots');
         const cards = document.querySelectorAll('.achievement-card');
 
-        // Fungsi untuk menghitung berapa kartu yang tampil per layar
         function getCardsPerView() {
             if (window.innerWidth <= 600) return 1;
             if (window.innerWidth <= 900) return 2;
             return 3;
         }
 
-        // Fungsi untuk membuat dots indicator
         function createDots() {
             dotsContainer.innerHTML = '';
             const cardsPerView = getCardsPerView();
@@ -1189,43 +1236,35 @@
             }
         }
 
-        // Fungsi untuk update posisi slider
         function updateSlider() {
             const cardsPerView = getCardsPerView();
-            const cardWidth = cards[0].offsetWidth + 20; // + gap 20px
+            const cardWidth = cards[0].offsetWidth + 20;
             const maxSlide = Math.ceil(cards.length / cardsPerView) - 1;
             
-            // Batasi currentSlide
             if (currentSlide < 0) currentSlide = 0;
             if (currentSlide > maxSlide) currentSlide = maxSlide;
 
-            // Geser track
             sliderTrack.style.transform = `translateX(-${currentSlide * cardsPerView * cardWidth}px)`;
 
-            // Update dots
             const dots = document.querySelectorAll('.dot');
             dots.forEach((dot, index) => {
                 dot.classList.toggle('active', index === currentSlide);
             });
         }
 
-        // Fungsi untuk pindah slide (dipanggil dari tombol)
         function moveSlide(direction) {
             currentSlide += direction;
             updateSlider();
         }
 
-        // Fungsi untuk pindah ke slide tertentu (dipanggil dari dot)
         function goToSlide(index) {
             currentSlide = index;
             updateSlider();
         }
 
-        // Inisialisasi Slider
         createDots();
         updateSlider();
 
-        // Re-inisialisasi slider saat ukuran window berubah
         window.addEventListener('resize', () => {
             currentSlide = 0;
             createDots();
